@@ -1,0 +1,57 @@
+{
+  "interactions": [
+    {
+      "request": {
+        "body_json": {
+          "messages": [
+            {
+              "content": "hi",
+              "role": "user"
+            }
+          ],
+          "model": "demo"
+        },
+        "method": "POST",
+        "url": "http://127.0.0.1:52811/v1/chat/completions"
+      },
+      "response": {
+        "body": "{\"id\": \"chatcmpl-demo\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"Hello from fake\"}, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 9, \"completion_tokens\": 4, \"total_tokens\": 13}}",
+        "headers": {
+          "content-length": "214",
+          "content-type": "application/json",
+          "date": "Sun, 25 Oct 2026 02:59:30 GMT",
+          "server": "BaseHTTP/0.6 Python/3.11.5"
+        },
+        "status": 200
+      }
+    },
+    {
+      "request": {
+        "body_json": {
+          "messages": [
+            {
+              "content": "hi",
+              "role": "user"
+            }
+          ],
+          "model": "demo",
+          "stream": true
+        },
+        "method": "POST",
+        "url": "http://127.0.0.1:52811/v1/chat/completions"
+      },
+      "response": {
+        "body": "data: {\"choices\":[{\"index\":0,\"delta\":{\"content\":\"Hel\"}}]}\n\ndata: {\"choices\":[{\"index\":0,\"delta\":{\"content\":\"lo!\"}}]}\n\ndata: [DONE]\n\n",
+        "headers": {
+          "content-length": "132",
+          "content-type": "text/event-stream",
+          "date": "Sun, 25 Oct 2026 02:59:30 GMT",
+          "server": "BaseHTTP/0.6 Python/3.11.5"
+        },
+        "status": 200
+      }
+    }
+  ],
+  "recorded_at": "2026-10-25T02:59:30+00:00",
+  "version": 1
+}
